@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- half screen for holes playground and half screen for dashboard -->
+
+    <!-- playground where holes are placed -->
+    <ScrollView
+        android:id="@+id/playGroundParent"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:background="@color/golfGreen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/dashboard">
+        <LinearLayout
+            android:id="@+id/playGround"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"/>
+    </ScrollView>
+
+    <!-- dashboard for information -->
+    <include layout="@layout/dashboard"
+        android:id="@+id/dashboard"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/playGroundParent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </include>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
